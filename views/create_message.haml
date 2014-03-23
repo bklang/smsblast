@@ -1,0 +1,11 @@
+%form{action: '/secure/send_message', method: 'post', class: 'form-inline well'}
+  %label Enter the message to be sent here. Limit 160 characters.
+  %input{type: 'text', name: 'message', size: '160', placeholder: 'message...', autofocus: true}
+  %br
+  %br
+  %label Enter the list of numbers to which this message will be sent. One per line. US numbers only.
+  %br
+  %textarea{rows: '15', cols: '15'}
+  %br
+  %br
+  %input{class: 'btn primary', type: 'submit', value: 'send!'}
