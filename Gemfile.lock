@@ -7,6 +7,8 @@ GEM
     celluloid-io (0.15.0)
       celluloid (>= 0.15.0)
       nio4r (>= 0.5.0)
+    faraday (0.8.9)
+      multipart-post (~> 1.2.0)
     ffi (1.9.3)
     haml (4.0.5)
       tilt
@@ -16,7 +18,9 @@ GEM
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
     multi_json (1.9.2)
+    multipart-post (1.2.0)
     nio4r (1.0.0)
+    phony (2.2.3)
     rack (1.5.2)
     rack-protection (1.5.2)
       rack
@@ -46,7 +50,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  faraday
   haml
+  phony
   rb-fsevent (~> 0.9.1)
   redis
   rerun

@@ -1,0 +1,18 @@
+%h2
+  Showing the last
+  = MAX_HISTORY
+  messages.
+- @statuses.each_pair do |id, status|
+  %p
+    %b
+      Message to:
+      = Phony.formatted status['target'], spaces: :-, format: :national
+    (
+    = Time.at(status['time'].to_i).localtime.strftime '%a, %e %b %Y %l:%M%P'
+    )
+  %p= status['message']
+  %p{style: 'font-style: italic;'}
+    Status:
+    = status['status']
+  %hr
+
