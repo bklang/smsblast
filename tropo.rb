@@ -1,8 +1,8 @@
 require 'net/http'
 require 'json'
 
-CONTACT = '+17706709482'
-WEB_UI_URL = 'http://smsblast.herokuapp.com'
+CONTACT = 'CHANGEME' # This should be a phone number to which responses are routed
+WEB_UI_URL = 'http://smsblast.herokuapp.com' # This should be the URL to your app
 
 def send_confirmation(id)
   uri = URI.parse "#{WEB_UI_URL}/tropo/update"
@@ -14,7 +14,7 @@ end
 if $currentCall
   case $currentCall.channel.downcase
   when 'voice'
-    transfer DONNA
+    transfer CONTACT
   when 'text'
     message "#{$currentCall.callerID}: #{$currentCall.initialText}", :to => CONTACT, :network => 'SMS'
   end
