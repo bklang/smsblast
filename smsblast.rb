@@ -130,10 +130,16 @@ post '/secure/send_message' do
 end
 
 post '/tropo/update' do
+  puts "Handling Tropo update with params: #{params.inspect}"
   if params['token'] == ENV['TROPO_TOKEN']
-    # We are not in the "secure" area so we need to instantiate Redis
-    get_redis
-    update_attempt params['id'], params['status']
+    puts "Valid Tropo Token."
+  else
+    puts "INVALID TROPO TOKEN! Ignoring update."
   end
+
+  # We are not in the "secure" area so we need to instantiate Redis
+  get_redis
+  puts "Update params from Tropo: #{params.inspect}"
+  update_attempt params['id'], params['status']
 end
 
