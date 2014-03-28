@@ -1,17 +1,17 @@
-DONNA = '+17706709482'
+MANAGER = 'REPLACE_ME_WITH_A_PHONE_NUMBER'
 
 if $currentCall
   case $currentCall.channel.downcase
   when 'voice'
-    transfer DONNA
+    transfer MANAGER
   when 'text'
-    message $currentCall.initialText, :to => DONNA, :network => 'SMS'
+    message "#{$currentCall.callerID}: #{$currentCall.initialText}", :to => DONNA, :network => 'SMS'
   end
 else
-  targets = ["+17706709482"]
-  targets.each do |target|
+
+  Array($targets).each do |target|
     call target, :network => 'SMS'
-    say %q{Hello! Don't forget Invasion: Christmas Carol will be at Fabrefaction Theatre (999 Brady Ave ATL GA 30318) tonight @ 8. Doors @ 7:30. XO, Dad's Garage}
+    say $message
     hangup
     sleep 1
   end
